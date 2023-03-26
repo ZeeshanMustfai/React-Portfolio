@@ -1,0 +1,21 @@
+{
+	"compilerOptions": {
+		"outDir": "./build/",
+		"sourceMap": true,
+		"noImplicitAny": true,
+		"module": "es6",
+		"target": "ES6",
+		"jsx": "react-jsx",
+		"allowJs": true,
+		"moduleResolution": "node",
+		"strict": true,
+		"skipLibCheck": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"paths": {
+			"@components/*": ["./src/components/*"],
+			"@lib/*": ["./src/lib/*"]
+		}
+	},
+	"include": ["src", "./declaration.d.ts", "./images.d.ts"]
+}

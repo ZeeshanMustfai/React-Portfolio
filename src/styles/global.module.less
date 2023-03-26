@@ -1,0 +1,29 @@
+@primary    : #000000;
+@secondary  : #D7D7D7;
+@darkGray   :#C4C4C4;
+@error-color: #f5222d;
+@light-white: #f2f5f7;
+
+.flexBox(@justifContent: center, @alignItems: center) {
+  display        : flex;
+  justify-content: @justifContent;
+  align-items    : @alignItems;
+}
+
+body {
+  margin    : 0;
+  padding   : 0;
+  background: var(--darkGray);
+}
+
+
+
+:root {
+  --primary     : @primary ;
+  --secondary   : @secondary;
+  --error       : @error-color;
+  --white       : @light-white;
+  --borderRadius: 30px;
+  --darkGray    : @darkGray;
+  --flexBox     : .flexBox();
+}

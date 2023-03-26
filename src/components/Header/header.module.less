@@ -1,0 +1,68 @@
+.headerMain {
+  background: var(--secondary);
+  position  : relative;
+
+  .profilesLink {
+    display        : flex;
+    justify-content: space-around;
+    align-items    : center;
+    align-self     : flex-start;
+    box-sizing     : border-box;
+  }
+
+  .infoSection {
+    display        : flex;
+    justify-content: center;
+    align-items    : flex-start;
+    flex-direction : column;
+    box-sizing     : border-box;
+    width          : 100%;
+    padding        : 30px;
+
+    .profileInfo {
+      margin: 40px 0;
+    }
+
+    .greeting {
+      font-size  : 40px;
+      font-weight: 700;
+      line-height: 40px;
+    }
+
+    .devName {
+      font-weight: 700;
+      font-size  : 50px;
+      line-height: 70px;
+    }
+
+    .designation {
+      font-family: 'Raleway';
+      font-style : normal;
+      font-weight: 800;
+      font-size  : 14px;
+      line-height: 20px;
+      color      : #919191;
+    }
+
+    .goToLink {
+      display        : flex;
+      justify-content: center;
+      align-items    : center;
+    }
+  }
+
+  .imageSection {
+    background         : var(--primary);
+    display            : flex;
+    justify-content    : center;
+    align-items        : flex-end;
+    width              : 100%;
+    object-fit         : cover;
+    background-position: center;
+  }
+}
+
+.downloadResume {
+  text-decoration: none;
+  color          : var(--primary);
+}
