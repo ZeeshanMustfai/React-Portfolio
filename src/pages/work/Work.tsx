@@ -1,4 +1,4 @@
-import { Box } from '@mui/material'
+import { Box, Button } from '@mui/material'
 import { ProjectCard } from '../../components'
 import { CommonTitle } from '../../lib'
 import { projectsList } from '../../mock'
@@ -21,6 +21,9 @@ const Work = ({ projectRef }: TWorkProps) => {
 				{projectsList.map((project) => {
 					return <ProjectCard key={project.id} projects={project} />
 				})}
+			</Box>
+			<Box sx={{ pt: 4, textAlign: 'right' }}>
+				<Button variant='contained'>View More</Button>
 			</Box>
 		</div>
 	)

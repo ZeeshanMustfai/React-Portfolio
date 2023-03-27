@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material'
+import { Grid, Typography } from '@mui/material'
 import styles from './service.module.less'
 
 type TServiceCardProps = {
@@ -12,7 +12,19 @@ export const ServiceCard = ({
 	description,
 }: TServiceCardProps) => {
 	return (
-		<div className={styles.serviceMain}>
+		<Grid
+			item
+			className={styles.serviceMain}
+			xs={12}
+			sm={6}
+			md={4}
+			sx={{
+				display: 'flex',
+				flexDirection: { xs: 'column', sm: 'row' },
+				justifyContent: 'center',
+				alignItems: 'center',
+			}}
+		>
 			<div className={styles.serviceIcon}>
 				<img src={icon} alt='services-icon' />
 			</div>
@@ -25,10 +37,9 @@ export const ServiceCard = ({
 					variant='body2'
 					textAlign={'justify'}
 				>
-					{description ||
-						'I can design the site based on your needs and suggestions. I can also design the site from scratch and consult you during the job.'}
+					{description}
 				</Typography>
 			</div>
-		</div>
+		</Grid>
 	)
 }

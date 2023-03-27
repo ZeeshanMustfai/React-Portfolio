@@ -38,12 +38,9 @@ const Contact = ({ contactRef }: TContactProps) => {
 		<div className={styles.contactMain} ref={contactRef}>
 			<CommonTitle>Contact</CommonTitle>
 			<div className={styles.contactText}>
-				<Typography variant='body2' textAlign={'justify'} gutterBottom>
-					Nulla in velit a metus rhoncus tempus. Nulla congue nulla vel sem
-					varius finibus. Sed ornare sit amet lorem sed viverra. In vel urna
-					quis libero viverra facilisis ut ac est.
+				<Typography variant='body1' textAlign={'justify'} gutterBottom>
+					If you want to work with me then please contact me here!
 				</Typography>
-				<Spliter />
 			</div>
 
 			<form onSubmit={formik.handleSubmit} className={styles.contactForm}>
@@ -79,6 +76,7 @@ const Contact = ({ contactRef }: TContactProps) => {
 					</Button>
 				</Box>
 			</form>
+			<Spliter />
 		</div>
 	)
 }

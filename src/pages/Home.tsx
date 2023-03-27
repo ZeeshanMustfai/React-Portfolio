@@ -1,5 +1,5 @@
 import { Container } from '@mui/material'
-import { useCallback, useRef, useState } from 'react'
+import { useCallback, useRef } from 'react'
 import { Header, Navbar } from '../components'
 import About from './about/About'
 import Contact from './contact/Contact'
@@ -12,6 +12,7 @@ const Home = () => {
 	const aboutRef = useRef<HTMLDivElement>(null)
 	const projectRef = useRef<HTMLDivElement>(null)
 	const contactRef = useRef<HTMLDivElement>(null)
+	const footerRef = useRef<HTMLDivElement>(null)
 
 	const handleMenuAction = useCallback((item: string) => {
 		if (item === 'Skills') {
@@ -31,6 +32,11 @@ const Home = () => {
 				contactRef.current.scrollIntoView({ behavior: 'smooth' })
 			}
 		}
+		if (item === 'About me') {
+			if (aboutRef.current) {
+				aboutRef.current.scrollIntoView({ behavior: 'smooth' })
+			}
+		}
 	}, [])
 
 	return (
@@ -38,8 +44,9 @@ const Home = () => {
 			<Navbar handleMenuAction={handleMenuAction} />
 			<Container sx={{ py: 8 }}>
 				<Header />
-				<Work projectRef={projectRef} />/
+				<About aboutRef={aboutRef} />
 				<Skills skillsRef={skillsRef} />
+				<Work projectRef={projectRef} />/
 				<Contact contactRef={contactRef} />
 			</Container>
 			<Footer />

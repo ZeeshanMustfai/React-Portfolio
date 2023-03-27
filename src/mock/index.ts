@@ -43,16 +43,19 @@ export const skillsList = [
 export const servicesList = [
 {
   title: 'Design',
-  icon: designIcon
+  icon: designIcon,
+  description: `I can design the site based on your needs and suggestions. I can also design the site from scratch and consult you during the job.`
 },
 
 {
   title: 'Development',
-  icon: developementIcon
+  icon: developementIcon,
+  description: `I will convert figma or xd design into full functional and responsive web app. Also I will right tests for checking individual functionality of React/Next js components.`
 },
 {
   title: 'Maintenance',
-  icon: maintenanceIcon
+  icon: maintenanceIcon,
+  description: `I will give 100 percent maintenance facility to our clients after project delivery`
 },
 
 ]
@@ -63,7 +66,7 @@ export const projectsList = [
     name: 'Pabau',
     image: p1,
     link: 'https://www.pabau.com/',
-    description: 'Pabau is a leading clinic management software system used by the best clinics to save time, empower growth, and craft the perfect patient experience.'
+    description: 'Pabau is a clinic management software system used by the best clinics to save time, empower growth, and craft the perfect patient experience.'
   },
   {
     id:'skrap-1',
@@ -83,3 +86,4 @@ export const projectsList = [
     G.ART. The largest online catalog of selected Eastern European artists`
   }
 ]
+

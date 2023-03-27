@@ -1,29 +1,37 @@
-import { Typography } from '@mui/material'
+import { Grid, Typography } from '@mui/material'
 import { ServiceCard } from '../../components'
 import { Spliter } from '../../lib'
 import CommonTitle from '../../lib/commonTitle/CommonTitle'
 import { servicesList } from '../../mock'
 import styles from './about.module.less'
 
-const About = () => {
+type TAboutProps = {
+	aboutRef: any
+}
+const About = ({ aboutRef }: TAboutProps) => {
 	return (
-		<div className={styles.aboutMain}>
+		<div className={styles.aboutMain} ref={aboutRef}>
 			<CommonTitle>About</CommonTitle>
 
 			<div className={styles.shortAbout}>
-				<Typography variant='body2' gutterBottom>
-					Nulla in velit a metus rhoncus tempus. Nulla congue nulla vel sem
-					varius finibus. Sed ornare sit amet lorem sed viverra. In vel urna
-					quis libero viverra facilisis ut ac est.
+				<Typography variant='body2' gutterBottom textAlign={'justify'} p={1}>
+					A Young Professional graduated in BS Information Technology with fresh
+					and new ideas, having strong problem solving, communication and
+					interpersonal skills. I am looking for a challenging role that gives
+					me an opportunity to utilize my experience, skills, and knowledge for
+					the research and development in academic and industrial areas.
 				</Typography>
 			</div>
 
-			<Spliter />
-			<div className={styles.services}>
-				{servicesList.map(({ title, icon }) => (
-					<ServiceCard serviceName={title} icon={icon} />
+			<Grid container spacing={3} my={6}>
+				{servicesList.map(({ title, icon, description }) => (
+					<ServiceCard
+						serviceName={title}
+						icon={icon}
+						description={description}
+					/>
 				))}
-			</div>
+			</Grid>
 			<Spliter />
 		</div>
 	)
