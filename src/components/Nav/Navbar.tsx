@@ -42,8 +42,9 @@ const drawer = (
 )
 type TNavbarProps = {
 	handleMenuAction: (arg: string) => void
+	topNavRef: any
 }
-export const Navbar = ({ handleMenuAction }: TNavbarProps) => {
+export const Navbar = ({ handleMenuAction, topNavRef }: TNavbarProps) => {
 	const [openMobile, setOpenMobile] = useState(false)
 	const handleDrawerToggle = () => {
 		setOpenMobile(!openMobile)
@@ -52,7 +53,7 @@ export const Navbar = ({ handleMenuAction }: TNavbarProps) => {
 		handleMenuAction(menu)
 	}
 	return (
-		<Box>
+		<Box ref={topNavRef}>
 			<AppBar position='fixed' component='nav'>
 				<Container>
 					<Toolbar className={styles.toolbar}>

@@ -1,7 +1,5 @@
 import { Grid, Typography } from '@mui/material'
-import { ServiceCard } from '../../components'
-import { Spliter } from '../../lib'
-import CommonTitle from '../../lib/commonTitle/CommonTitle'
+import { ServiceCard, Spliter, CommonTitle } from '../../components'
 import { servicesList } from '../../mock'
 import styles from './about.module.less'
 

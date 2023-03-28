@@ -1,14 +1,14 @@
 import { Box, Button, Typography } from '@mui/material'
-import CommonTitle from '../../lib/commonTitle/CommonTitle'
 import { TextField } from '@mui/material'
 import styles from './contact.module.less'
 import * as yup from 'yup'
 import { useFormik } from 'formik'
-import { Spliter } from '../../lib'
+import { CommonTitle, Spliter } from '../../components'
 
 type TContactProps = {
 	contactRef: any
 }
+
 const validationSchema = yup.object().shape({
 	email: yup
 		.string()
@@ -76,7 +76,9 @@ const Contact = ({ contactRef }: TContactProps) => {
 					</Button>
 				</Box>
 			</form>
-			<Spliter />
+			<Box mt={8}>
+				<Spliter />
+			</Box>
 		</div>
 	)
 }

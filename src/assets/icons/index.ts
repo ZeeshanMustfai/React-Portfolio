@@ -23,6 +23,14 @@ import linkedNewIcon from "./social/fb.svg"
 import developementIcon from "./developement.svg"
 import designIcon from "./design.svg"
 import maintenanceIcon from "./maintain.svg"
+import prismaIcon from "./skills/prisma.png"
+import muiIcon from "./skills/mui.png"
+import postgreSqlIcon from "./skills/postgres.png"
+import reduxIcon from "./skills/redux.png"
+import graphqlIcon from "./skills/graphql.png"
+import tailwindIcon from "./skills/tailwind.png"
+import nextIcon from "./skills/nextjs.png"
+import antdIcon from "./skills/antd.png"
 
 export {
   appLogo,
@@ -49,5 +57,13 @@ export {
   linkedNewIcon,
   developementIcon,
   maintenanceIcon,
-  designIcon
+  designIcon,
+  muiIcon,
+  graphqlIcon,
+  prismaIcon,
+  tailwindIcon,
+  postgreSqlIcon,
+  reduxIcon,
+  nextIcon,
+  antdIcon
 }

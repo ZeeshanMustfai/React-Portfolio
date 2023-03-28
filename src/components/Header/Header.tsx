@@ -2,8 +2,8 @@ import { Grid, Typography } from '@mui/material'
 import styles from './header.module.less'
 import { linkedInIcon, githubIcon } from '../../assets/icons'
 import { profileImage } from '../../assets/images'
-import { Badge } from '../../lib'
 import ZeeshanResume from '../../assets/pdf/ZeeshanMustfai.pdf'
+import { Badge } from '..'
 export const Header = () => {
 	return (
 		<Grid container className={styles.headerMain}>

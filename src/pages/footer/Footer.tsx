@@ -1,17 +1,14 @@
 import { Typography } from '@mui/material'
-import {
-	backToUpIcon,
-	facebookIcon,
-	gmailIcon,
-	instagramIcon,
-	linkedNewIcon,
-} from '../../assets/icons'
+import { backToUpIcon } from '../../assets/icons'
 import styles from './footer.module.less'
 
-const Footer = () => {
+type TFooterProps = {
+	handleGoToUp: () => void
+}
+const Footer = ({ handleGoToUp }: TFooterProps) => {
 	return (
 		<div className={styles.footerMain}>
-			<div className={styles.backToUp}>
+			<div className={styles.backToUp} onClick={handleGoToUp}>
 				<img src={backToUpIcon} alt='back-up-icon' />
 				<Typography
 					variant='body2'
@@ -19,13 +16,6 @@ const Footer = () => {
 				>
 					Back To Top
 				</Typography>
-			</div>
-
-			<div className={styles.socialIcon}>
-				<img src={facebookIcon} alt='fb-icon' />
-				<img src={instagramIcon} alt='insta-icon' />
-				<img src={gmailIcon} alt='gmail-icon' />
-				<img src={linkedNewIcon} alt='linkedin-icon' />
 			</div>
 
 			<Typography variant='body2' gutterBottom color={'#fff'}>

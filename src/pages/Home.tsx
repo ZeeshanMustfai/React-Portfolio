@@ -5,14 +5,14 @@ import About from './about/About'
 import Contact from './contact/Contact'
 import Footer from './footer/Footer'
 import Skills from './skills/Skills'
-import Work from './work/Work'
+import Projects from './projects/Projects'
 
 const Home = () => {
 	const skillsRef = useRef<HTMLDivElement>(null)
 	const aboutRef = useRef<HTMLDivElement>(null)
 	const projectRef = useRef<HTMLDivElement>(null)
 	const contactRef = useRef<HTMLDivElement>(null)
-	const footerRef = useRef<HTMLDivElement>(null)
+	const topNavRef = useRef<HTMLDivElement>(null)
 
 	const handleMenuAction = useCallback((item: string) => {
 		if (item === 'Skills') {
@@ -39,17 +39,23 @@ const Home = () => {
 		}
 	}, [])
 
+	const handleGoToUp = useCallback(() => {
+		if (topNavRef.current) {
+			topNavRef.current.scrollIntoView({ behavior: 'smooth' })
+		}
+	}, [])
+
 	return (
 		<>
-			<Navbar handleMenuAction={handleMenuAction} />
+			<Navbar handleMenuAction={handleMenuAction} topNavRef={topNavRef} />
 			<Container sx={{ py: 8 }}>
 				<Header />
 				<About aboutRef={aboutRef} />
 				<Skills skillsRef={skillsRef} />
-				<Work projectRef={projectRef} />/
+				<Projects projectRef={projectRef} />/
 				<Contact contactRef={contactRef} />
 			</Container>
-			<Footer />
+			<Footer handleGoToUp={handleGoToUp} />
 		</>
 	)
 }

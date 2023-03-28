@@ -8,14 +8,20 @@
     justify-content: center;
     align-items    : center;
     flex-wrap      : wrap;
-    max-width      : 800px;
+    gap            : 10px;
   }
 
   .skillSection {
-    width          : 150px;
+    min-width      : 240px;
     display        : flex;
     justify-content: center;
     align-items    : center;
     flex-direction : column;
+    cursor         : pointer;
+  }
+
+  .skillCard {
+    background: var(--primary);
+    color     : var(--secondary);
   }
 }
