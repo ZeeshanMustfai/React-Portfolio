@@ -22,11 +22,12 @@ const About = ({ aboutRef }: TAboutProps) => {
 			</div>
 
 			<Grid container spacing={3} my={6}>
-				{servicesList.map(({ title, icon, description }) => (
+				{servicesList.map(({ title, icon, description }, index) => (
 					<ServiceCard
 						serviceName={title}
 						icon={icon}
 						description={description}
+						key={`service-${index}`}
 					/>
 				))}
 			</Grid>

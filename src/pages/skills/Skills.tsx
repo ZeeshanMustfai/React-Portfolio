@@ -29,8 +29,12 @@ const Skills = ({ skillsRef }: TSkillsRef) => {
 			<Grid item xs={12} className={styles.skills}>
 				{skillsList.slice(0, counter).map(({ name, icon }, index) => {
 					return (
-						<Card elevation={3} className={styles.skillCard}>
-							<Box key={`skills-${index}`} className={styles.skillSection}>
+						<Card
+							elevation={3}
+							className={styles.skillCard}
+							key={`skills-${index}`}
+						>
+							<Box className={styles.skillSection}>
 								<img src={icon} alt={name} width={96} height={96} />
 								<Typography variant='h6' paddingTop={2}>
 									{name}

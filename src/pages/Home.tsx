@@ -45,6 +45,23 @@ const Home = () => {
 		}
 	}, [])
 
+	// function countKSubarrays(nums: number[], k: number) {
+	// 	let count = 0
+	// 	let prefixSums = Array(nums.length + 1).fill(0)
+	// 	let modCounts = Array(k).fill(0)
+	// 	prefixSums[0] = 0
+	// 	modCounts[0] = 1
+
+	// 	for (let i = 0; i < nums.length; i++) {
+	// 		prefixSums[i + 1] = prefixSums[i] + nums[i]
+	// 		let mod = ((prefixSums[i + 1] % k) + k) % k // to handle negative remainders
+	// 		count += modCounts[mod]
+	// 		modCounts[mod]++
+	// 	}
+
+	// 	return count
+	// }
+
 	return (
 		<>
 			<Navbar handleMenuAction={handleMenuAction} topNavRef={topNavRef} />
