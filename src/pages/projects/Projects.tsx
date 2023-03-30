@@ -1,7 +1,8 @@
 import { Box, Button } from '@mui/material'
 import { useState } from 'react'
-import { ProjectCard, CommonTitle } from '../../components'
+import { ProjectCard, CommonTitle, Spliter } from '../../components'
 import { projectsList } from '../../mock'
+import styles from './project.module.less'
 type TProjectsProps = {
 	projectRef: any
 }
@@ -19,7 +20,7 @@ const Projects = ({ projectRef }: TProjectsProps) => {
 		}
 	}
 	return (
-		<div ref={projectRef}>
+		<div ref={projectRef} className={styles.projectsMain}>
 			<CommonTitle>Projects</CommonTitle>
 			<Box
 				sx={{
@@ -44,6 +45,9 @@ const Projects = ({ projectRef }: TProjectsProps) => {
 						View More
 					</Button>
 				)}
+			</Box>
+			<Box textAlign={'center'} sx={{ pt: 4 }}>
+				<Spliter />
 			</Box>
 		</div>
 	)

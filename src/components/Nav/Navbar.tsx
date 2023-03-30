@@ -12,34 +12,46 @@ import {
 	Toolbar,
 	Typography,
 } from '@mui/material'
-import { SetStateAction, useState } from 'react'
+import { SetStateAction, useCallback, useState } from 'react'
 import { Menu as MenuIcon } from '@mui/icons-material'
 import styles from './navbar.module.less'
+import { CssVarsProviderConfig } from '@mui/system'
 
 const navItems = ['About me', 'Skills', 'Projects']
 
-const drawer = (
-	<Box className={styles.drawer}>
-		<Typography
-			variant='h6'
-			fontWeight={800}
-			padding='5px'
-			textAlign={'center'}
-		>
-			Mustfai
-		</Typography>
-		<Divider />
-		<List>
-			{navItems.map((item) => (
-				<ListItem key={item} disablePadding>
-					<ListItemButton sx={{ textAlign: 'center' }}>
-						<ListItemText primary={item} />
-					</ListItemButton>
-				</ListItem>
-			))}
-		</List>
-	</Box>
-)
+type TDrawerProp = {
+	handleAction: (arg: string) => void
+}
+const MobileMenuDrawer = ({ handleAction }: TDrawerProp) => {
+	const handleMobileAction = (action: string) => {
+		handleAction(action)
+	}
+	return (
+		<Box className={styles.drawer}>
+			<Typography
+				variant='h6'
+				fontWeight={800}
+				padding='5px'
+				textAlign={'center'}
+			>
+				Mustfai
+			</Typography>
+			<Divider />
+			<List>
+				{navItems.map((item) => (
+					<ListItem key={item} disablePadding>
+						<ListItemButton
+							sx={{ textAlign: 'center' }}
+							onClick={() => handleMobileAction(item)}
+						>
+							<ListItemText primary={item} />
+						</ListItemButton>
+					</ListItem>
+				))}
+			</List>
+		</Box>
+	)
+}
 type TNavbarProps = {
 	handleMenuAction: (arg: string) => void
 	topNavRef: any
@@ -49,9 +61,11 @@ export const Navbar = ({ handleMenuAction, topNavRef }: TNavbarProps) => {
 	const handleDrawerToggle = () => {
 		setOpenMobile(!openMobile)
 	}
-	const handleAction = (menu: string) => {
+
+	const handleAction = useCallback((menu: string) => {
 		handleMenuAction(menu)
-	}
+	}, [])
+
 	return (
 		<Box ref={topNavRef}>
 			<AppBar position='fixed' component='nav'>
@@ -86,7 +100,11 @@ export const Navbar = ({ handleMenuAction, topNavRef }: TNavbarProps) => {
 						>
 							{navItems.map((menu) => {
 								return (
-									<Typography key={menu} onClick={() => handleAction(menu)}>
+									<Typography
+										key={menu}
+										onClick={() => handleAction(menu)}
+										className={styles.navItems}
+									>
 										{menu}
 									</Typography>
 								)
@@ -118,7 +136,7 @@ export const Navbar = ({ handleMenuAction, topNavRef }: TNavbarProps) => {
 						},
 					}}
 				>
-					{drawer}
+					<MobileMenuDrawer handleAction={handleAction} />
 				</Drawer>
 			</Box>
 		</Box>

@@ -1,9 +1,12 @@
-import { Box, Button, Typography } from '@mui/material'
+import { Alert, Box, Snackbar, Typography } from '@mui/material'
 import { TextField } from '@mui/material'
 import styles from './contact.module.less'
 import * as yup from 'yup'
 import { useFormik } from 'formik'
+import { LoadingButton as Button } from '@mui/lab'
 import { CommonTitle, Spliter } from '../../components'
+import emailjs from '@emailjs/browser'
+import { useState } from 'react'
 
 type TContactProps = {
 	contactRef: any
@@ -22,6 +25,9 @@ const validationSchema = yup.object().shape({
 })
 
 const Contact = ({ contactRef }: TContactProps) => {
+	const [loading, setLoading] = useState(false)
+	const [emailStatus, setEmailStatus] = useState('')
+	const [open, setOpen] = useState(false)
 	const formik = useFormik({
 		initialValues: {
 			name: '',
@@ -30,8 +36,35 @@ const Contact = ({ contactRef }: TContactProps) => {
 		},
 		validationSchema,
 		onSubmit: (values) => {
-			console.log('values')
-			alert(JSON.stringify(values, null, 2))
+			const { name, email, message } = values
+			const templateParams = {
+				name,
+				email,
+				message,
+			}
+			setLoading(true)
+			emailjs
+				.send(
+					String(process.env.REACT_APP_SERVICE_ID),
+					String(process.env.REACT_APP_TEMPLATE_ID),
+					templateParams,
+					process.env.REACT_APP_EMAIL_PUBLIC_KEY
+				)
+				.then(
+					(result) => {
+						setLoading(false)
+						setOpen(true)
+						setTimeout(() => {
+							setOpen(false)
+						}, 2000)
+						setEmailStatus(result.text)
+						formik.resetForm()
+					},
+					(error) => {
+						setLoading(false)
+						setEmailStatus(error.text)
+					}
+				)
 		},
 	})
 	return (
@@ -71,10 +104,22 @@ const Contact = ({ contactRef }: TContactProps) => {
 					helperText={formik.touched.message && formik.errors.message}
 				/>
 				<Box textAlign={'center'} marginTop={2}>
-					<Button type='submit' variant='outlined'>
+					<Button type='submit' variant='contained' loading={loading}>
 						Submit
 					</Button>
 				</Box>
+				{emailStatus && (
+					<Snackbar
+						open={open}
+						anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+					>
+						<Alert severity={emailStatus === 'OK' ? 'success' : 'error'}>
+							{emailStatus === 'OK'
+								? 'Your email successfully sent!'
+								: emailStatus}
+						</Alert>
+					</Snackbar>
+				)}
 			</form>
 			<Box mt={8}>
 				<Spliter />

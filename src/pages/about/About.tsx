@@ -9,7 +9,7 @@ type TAboutProps = {
 const About = ({ aboutRef }: TAboutProps) => {
 	return (
 		<div className={styles.aboutMain} ref={aboutRef}>
-			<CommonTitle>About</CommonTitle>
+			<CommonTitle>About Me</CommonTitle>
 
 			<div className={styles.shortAbout}>
 				<Typography variant='body2' gutterBottom textAlign={'justify'} p={1}>

@@ -33,9 +33,35 @@
   padding         : 5px 10px;
   border-radius   : 50px;
   font-weight     : 600 !important;
+  display         : inline-block;
+  box-sizing      : border-box;
+
+  &:hover {
+    color     : var(--white);
+    box-shadow: inset -3.8em 0 0 0 var(--primary), inset 3.8em 0 0 0 var(--primary);
+    transition: 1.25s;
+    outline   : none;
+    border    : .5px solid;
+  }
 }
 
 .drawer {
   background: var(--primary);
   color     : var(--white);
+}
+
+.navItems {
+  display: inline-block;
+
+  &::after {
+    display      : block;
+    content      : '';
+    border-bottom: 2px solid var(--white);
+    transform    : scaleX(0);
+    transition   : 350ms ease-in-out;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+  }
 }

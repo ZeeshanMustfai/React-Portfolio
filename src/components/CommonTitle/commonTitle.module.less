@@ -20,5 +20,14 @@
     max-width     : 300px;
     cursor        : pointer;
     padding       : 10px;
+
+    &:hover {
+      transition: 1s;
+      color     : var(--secondary);
+      border    : 8px solid var(--primary);
+      box-shadow:
+        inset -4.5em 0 0 0 var(--primary),
+        inset 4.5em 0 0 0 var(--primary);
+    }
   }
 }
